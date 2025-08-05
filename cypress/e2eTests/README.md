@@ -69,7 +69,3 @@ The test suite covers a variety of user flows on the GreenKart demo site. Each s
 - **Empty cart checkout:** opens the cart when no items are added and asserts that the **PROCEED TO CHECKOUT** button is disabled so you cannot continue without items.
 - **Promo code application:** adds two items to the cart, proceeds to checkout, enters a valid promo code (`rahulshettyacademy`) and confirms that the **Code applied** message appears and that the discount percentage is greater than 0 %.
 - **Country and terms validation:** adds an item and goes through the checkout flow to the final page. It then demonstrates that clicking **Proceed** without selecting a country or agreeing to the terms displays a warning message. Selecting a country alone still prompts the warning. Once the terms checkbox is ticked, the **Proceed** button becomes enabled and the checkout can complete.
-
-## Contributing
-
-Contributions are welcome! Please fork the repository, create a feature branch, and open a pull request with your proposed changes. When submitting a PR, ensure that existing tests pass and that any new tests are stable and rely on robust selectors.
