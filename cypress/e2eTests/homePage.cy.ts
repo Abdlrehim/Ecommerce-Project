@@ -1,29 +1,34 @@
-import { defineConfig } from "cypress";
-///<reference types="cypress" />
+/// <reference types="cypress" />
 
 import HomePage from "../pageObjects/homePageObjects.ts";
 import GreenKart from "../pageObjects/greenKartPage.ts";
 
+describe('E‑commerce HomePage Tests', () => {
+    let homepage: HomePage;
+    let greencart: GreenKart;
 
-describe('E-commerce Homepage Tests', () => {
-    it('should search and add an item to the cart and place order', () => {
-
-        const homepage = new HomePage()
-        const greencart = new GreenKart()
+    beforeEach(() => {
+        homepage = new HomePage();
+        greencart = new GreenKart();
         homepage.visit();
+    });
+
+    it('should search and add an item to the cart and place order', () => {
         homepage.searchFor('ca');
         homepage.verifyItemVisible();
         homepage.addToCart('Cashews');
-        greencart.gotocart();
+        greencart.gotoCart();
+    });
 
+    it('filters products based on a search term', () => {
+
+        homepage.filterProducts('tom');
+        homepage.assertFilteredProductCount(1);
+        homepage.assertFirstFilteredProductContains('Tomato');
+    });
+
+    it('increments quantity of the first product when the plus button is clicked', () => {
+
+        homepage.incrementQuantityOfFirstProduct();
     });
 });
-
-
-
-
-
-
-
-
-
